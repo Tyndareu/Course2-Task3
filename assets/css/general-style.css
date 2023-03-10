@@ -5,39 +5,73 @@ body {
   /*background-color: grey;*/
 }
 
+
+/*LOGO*/
+.logo {
+  display:flex;
+  margin-top: 40px;
+}
+.logo h1{
+  margin-top: 7px;
+  margin-left: 40px;
+}
+.mailto{
+  margin-top: 12px;
+  margin-left: auto;
+}
+
 /*NAV*/
 
-.menu ul {
-  display: flex;
-  list-style: none;
+.menu {
+
+  margin: 40px 0px 40px 0px;
+
 }
 
-.menu ul li {
-  padding: 5px;
-  background-color: #60c5e7;
+.btn-menu {
+  padding: 10px;
   border-radius: 8px;
   border: solid 1px #60c5e7;
+  background-color: #60c5e7;
 }
-
-.menu ul li:hover {
+.btn-menu:hover {
   background-color: transparent;
   border-radius: 8px;
   border: solid 1px #60c5e7;
 }
 
-.menu ul li a {
-  color: black;
-  text-decoration: none;
+.btn-menu a{
+text-decoration: none;
+color: black;
 }
 
-/* TABLE 
+.btn-submenu{
+padding: 5px;
+text-align: center;
+background-color:white;
+border: solid 1px #60c5e7;
+}
+.btn-submenu a{
+  margin: 1px 0px 0px 0px;
+  background-color: #60c5e7;
+  border-radius: 8px;
+  border: solid 1px #60c5e7;
+  }
+.btn-submenu a:hover{
+  background-color: white;
+  border-radius: 8px;
+  border: solid 1px #60c5e7;
+  }
+
+
+
+/*TABLE */
 
 .divTabla {
-  height: 430px;
+  height: 530px;
   overflow-y: scroll;
   scroll-behavior: smooth;
   margin-bottom: 40px;
-  max-width: 1020px;
   border: solid 4px #60c5e7;
   border-radius: 10px;
 }
@@ -49,22 +83,14 @@ body {
   text-transform: uppercase;
 }
 
-.table-header th {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
 td {
   text-align: center;
-  padding: 10px;
-  width: 200px;
 }
 
 .table-row {
   box-shadow: 5px 2px 9px 0px rgba(0, 0, 0, 0.1);
 }
-
-Table end*/
+/*Table end*/
 
 /*CODIGO DESPLEGABLE*/
 
