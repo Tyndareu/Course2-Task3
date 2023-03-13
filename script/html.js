@@ -1,12 +1,60 @@
 //SENATORS JSON
-const senators = await fetch("./house.json");
-const jsonSenators = Array.from(await senators.json());
 
+let params = new URL(document.location).searchParams;
+let chamber = params.get("chamber")
+let congress
+
+if (chamber) {
+    if (chamber === 'house') {
+        congress = await fetch("./assets/scr/house.json");
+
+    }
+    else {
+        congress = await fetch("./assets/scr/senate.json");
+    }
+}
+else {
+    congress = await fetch("./assets/scr/senate.json")
+    chamber='house'}
+
+
+
+const jsonSenators = Array.from(await congress.json());
+
+//congress select item
+
+let congressP = document.createElement("p");
+congressP.className = "congress";
+congressP.textContent = chamber.toLocaleUpperCase()
+document.querySelector("#congress").appendChild(congressP)
+
+const h2Senators = "Senators"
+const pSenators = "First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House." 
+const h2Congress = "Congressmen"
+const pCongress = "The major power of the House is to pass federal legislation that affects the entire country, although its bills must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in the Senate), and to elect the U.S. President in case there is no majority in the Electoral College."
+const p2Congress = "Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative. "
+
+if (chamber === 'house'){
+    let congressH2 = document.createElement("h2")
+    let congressP =document.createElement("p")
+    let congressP2 =document.createElement("p")
+
+    congressH2.textContent = h2Congress.toLocaleUpperCase()
+    congressP.textContent = pCongress
+    congressP2.textContent = p2Congress
+    document.querySelector("#congressInfo").appendChild(congressH2).appendChild(congressP).appendChild(congressP2)
+}
+
+else{
+    let congressH2 = document.createElement("h2")
+    let congressP =document.createElement("p")
+    congressH2.textContent = h2Senators.toLocaleUpperCase()
+    congressP.textContent = pSenators
+    document.querySelector("#congressInfo").appendChild(congressH2).appendChild(congressP)    
+}
 
 //STATES JSON
-const states = await fetch(
-    "https://gist.githubusercontent.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_hash.json"
-);
+const states = await fetch("https://gist.githubusercontent.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_hash.json");
 const jsonStates = await states.json();
 
 //checkbox
@@ -49,16 +97,15 @@ checkboxes.forEach((element) => {
     });
 });
 
-//DESPLEGABLE
 
-//DESPLEGABLE
+//Dropdown States Filter
 
 document.getElementById('dropdownbtn').onclick = function () {
     //Delete DropDown
     const dropdownbtn = document.querySelector("#dropdown");
     dropdownbtn.innerHTML = " ";
 
-    // button all states
+    // button "all states"
     let buttonAllStates = document.createElement("button");
     buttonAllStates.value = 'all';
     buttonAllStates.className = "dropdownoption";
@@ -94,7 +141,7 @@ function dropDownOptionFunction() {
 }
 
 //TABLA
-const cabeceraItems = [
+const headerItems = [
     "Name",
     "Party",
     "State",
@@ -128,7 +175,7 @@ function generate_table() {
     const rowHeader = document.createElement("tr");
     rowHeader.className = "table-header";
 
-    cabeceraItems.forEach((element) => {
+    headerItems.forEach((element) => {
         const cell = document.createElement("td");
         const cellText = document.createTextNode(element);
 

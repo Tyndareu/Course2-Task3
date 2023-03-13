@@ -6,6 +6,7 @@ body {
 }
 
 
+
 /*LOGO*/
 .logo {
   display:flex;
@@ -23,9 +24,22 @@ body {
 /*NAV*/
 
 .menu {
-
+  display: flex;
   margin: 40px 0px 40px 0px;
+}
+.menu button{
+  margin-right: 5px;
+}
 
+#congress {
+  padding: 10px;
+  border-radius: 8px;
+  border: solid 1px #286722;
+  background-color: #286722;
+}
+#congress p{
+  color: wheat;
+  margin: auto;
 }
 
 .btn-menu {
@@ -63,7 +77,20 @@ border: solid 1px #60c5e7;
   border: solid 1px #60c5e7;
   }
 
+.filters form{
+  margin-block: auto;
+  
+}
 
+/*congress select*/
+#congressInfo p{
+  font-size: 1rem;
+  font-weight: normal;
+  margin-top: 10px;
+}
+#congressInfo h2{
+  font-size: 1.5rem;
+}
 
 /*TABLE */
 
@@ -71,7 +98,6 @@ border: solid 1px #60c5e7;
   height: 530px;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  margin-bottom: 40px;
   border: solid 4px #60c5e7;
   border-radius: 10px;
 }
